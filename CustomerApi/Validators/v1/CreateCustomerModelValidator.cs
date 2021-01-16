@@ -1,6 +1,6 @@
 ﻿using System;
-using CustomerApi.Models.v1;
 using FluentValidation;
+using CustomerApi.Models.v1;
 
 namespace CustomerApi.Validators.v1
 {

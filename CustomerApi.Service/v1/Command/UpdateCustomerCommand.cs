@@ -1,5 +1,5 @@
-﻿using CustomerApi.Domain.Entities;
-using MediatR;
+﻿using MediatR;
+using CustomerApi.Domain.Entities;
 
 namespace CustomerApi.Service.v1.Command
 {

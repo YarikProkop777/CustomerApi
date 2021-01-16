@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using CustomerApi.Domain.Entities;
 using CustomerApi.Data.Repository.v1;
-using MediatR;
 
 namespace CustomerApi.Service.v1.Command
 {

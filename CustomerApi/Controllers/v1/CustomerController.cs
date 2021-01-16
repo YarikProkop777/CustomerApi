@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using MediatR;
 using CustomerApi.Domain.Entities;
 using CustomerApi.Models.v1;
 using CustomerApi.Service.v1.Command;
 using CustomerApi.Service.v1.Query;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerApi.Controllers.v1
 {
