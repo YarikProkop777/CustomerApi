@@ -21,6 +21,8 @@ using CustomerApi.Models.v1;
 using CustomerApi.Service.v1.Command;
 using CustomerApi.Service.v1.Query;
 using CustomerApi.Validators.v1;
+using CustomerApi.Messaging.Send.Options.v1;
+using CustomerApi.Messaging.Send.Sender.v1;
 
 namespace CustomerApi
 {
@@ -38,6 +40,10 @@ namespace CustomerApi
         {
             services.AddHealthChecks();
             services.AddOptions();
+
+            // configure RabbitMQ connection
+            var serviceClientSettingsConfig = Configuration.GetSection("RabbitMq");
+            services.Configure<RabbitMqConfiguration>(serviceClientSettingsConfig);
 
             services.AddDbContext<CustomerContext>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
 
@@ -92,6 +98,9 @@ namespace CustomerApi
             // register Validator services
             services.AddTransient<IValidator<CreateCustomerModel>, CreateCustomerModelValidator>();
             services.AddTransient<IValidator<UpdateCustomerModel>, UpdateCustomerModelValidator>();
+
+            // register MQ service
+            services.AddSingleton<ICustomerUpdateSender, CustomerUpdateSender>();
 
             // register CQRS services
             services.AddTransient<IRequestHandler<CreateCustomerCommand, Customer>, CreateCustomerCommandHandler>();

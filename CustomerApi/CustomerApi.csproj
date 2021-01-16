@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CustomerApi.Domain\CustomerApi.Domain.csproj" />
+    <ProjectReference Include="..\CustomerApi.Messaging.Send\CustomerApi.Messaging.Send.csproj" />
     <ProjectReference Include="..\CustomerApi.Service\CustomerApi.Service.csproj" />
   </ItemGroup>
 
